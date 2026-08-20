@@ -10,6 +10,7 @@
 
 void eae6320::Physics::sRigidBodyState::Update( const float i_secondCountToIntegrate )
 {
+
 	// Update position
 	{
 		position += velocity * i_secondCountToIntegrate;
@@ -21,7 +22,7 @@ void eae6320::Physics::sRigidBodyState::Update( const float i_secondCountToInteg
 	// Update orientation
 	{
 		const auto rotation = Math::cQuaternion( angularSpeed * i_secondCountToIntegrate, angularVelocity_axis_local );
-		orientation = orientation * rotation;
+		orientation = rotation * orientation;
 		orientation.Normalize();
 	}
 }
@@ -40,4 +41,16 @@ eae6320::Math::cQuaternion eae6320::Physics::sRigidBodyState::PredictFutureOrien
 eae6320::Math::cMatrix_transformation eae6320::Physics::sRigidBodyState::PredictFutureTransform( const float i_secondCountToExtrapolate ) const
 {
 	return Math::cMatrix_transformation( PredictFutureOrientation( i_secondCountToExtrapolate ), PredictFuturePosition( i_secondCountToExtrapolate ) );
+}
+
+eae6320::Math::cMatrix_transformation eae6320::Physics::sRigidBodyState::PredictFutureTransformForCamera(const float i_secondCountToExtrapolate) const
+{
+	const auto futureOrientation = PredictFutureOrientation(i_secondCountToExtrapolate);
+	const auto futurePosition = PredictFuturePosition(i_secondCountToExtrapolate);
+
+	eae6320::Math::cMatrix_transformation rotationMatrix(futureOrientation, eae6320::Math::sVector(0.0f, 0.0f, 0.0f));
+
+	eae6320::Math::cMatrix_transformation translationMatrix(eae6320::Math::cQuaternion(), futurePosition);
+
+	return rotationMatrix * translationMatrix;
 }

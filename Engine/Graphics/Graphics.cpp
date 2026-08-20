@@ -23,7 +23,7 @@ namespace
 
 	// Submission Data
 	//----------------
-	const size_t s_MaxMeshEffectPair = 10;
+	const size_t s_MaxMeshEffectPair = 40;
 
 	struct sMeshEffectPair
 	{

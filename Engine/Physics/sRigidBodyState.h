@@ -49,6 +49,9 @@ namespace eae6320
 			Math::sVector PredictFuturePosition( const float i_secondCountToExtrapolate ) const;
 			Math::cQuaternion PredictFutureOrientation( const float i_secondCountToExtrapolate ) const;
 			Math::cMatrix_transformation PredictFutureTransform( const float i_secondCountToExtrapolate ) const;
+
+			// Special case for camera
+			Math::cMatrix_transformation PredictFutureTransformForCamera(const float i_secondCountToExtrapolate) const;
 		};
 	}
 }

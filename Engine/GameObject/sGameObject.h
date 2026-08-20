@@ -47,7 +47,6 @@ namespace eae6320
 			void setSettings(float i_fieldOfView, float i_asspectRatio, float i_nearClipping, float i_farClipping);
 			eae6320::cResult RenderCamera(const float i_elapsedSecondCount_sinceLastSimulationUpdate);
 		private:
-			eae6320::Math::cMatrix_transformation m_transform;
 			eae6320::Math::cMatrix_transformation m_settings;
 		};
 	}

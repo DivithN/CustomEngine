@@ -1,0 +1,26 @@
+﻿{
+  "audios": [
+    {
+      "name": "piano",
+      "file_path": "data/audio/piano.wav",
+      "playback_speed": 1.0,
+      "isSpatial": true,
+      "range": 10.0,
+      "volume": {
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    {
+      "name": "metal_bottle",
+      "file_path": "data/audio/metal_bottle.wav",
+      "playback_speed": 1.0,
+      "isSpatial": false,
+      "range": null,
+      "volume": {
+        "min": 0.0,
+        "max": 1.0
+      }
+    }
+  ]
+}
