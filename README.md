@@ -27,9 +27,3 @@ pipeline for exporting animation data from Maya.
 
 I also integrated spatial audio into the engine and built the gameplay-side
 audio pipeline used by the game.
-
-
-
-## Building
-
-...
